@@ -58,8 +58,7 @@ module Zanox
         logger.info "Params:  #{options.inspect}"
         logger.info "Headers: #{headers.inspect}"
         response = get("/json/2011-03-01/#{method}", query: options, headers: headers)
-        Response.new(response)
-      end
+        Response.new(response, [method, options, headers]) end
     end
   end
 end

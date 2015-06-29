@@ -26,8 +26,9 @@ module Zanox
   class Response
     attr_reader :response
 
-    def initialize(response)
-      @response = response
+    def initialize(response, original_params = [])
+      @response        = response
+      @original_params = original_params
 
       status_code = @response.parsed_response['code']
       if status_code
@@ -39,8 +40,18 @@ module Zanox
       end
     end
 
-    def response
-      @response.parsed_response
+    def previous_page
+      if @original_params.length == 3
+        @original_params[1].merge!({ page: page - 1 })
+        API.request(*@original_params)
+      end
+    end
+
+    def next_page
+      if @original_params.length == 3
+        @original_params[1].merge!({ page: page + 1 })
+        API.request(*@original_params)
+      end
     end
 
     def inspect
