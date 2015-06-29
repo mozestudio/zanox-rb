@@ -19,4 +19,7 @@ To make requests to the APIs, call `Zanox::API#request` passing the endpoint of 
 
 Every call will return a native Ruby hash or an array reflecting the original documentation provided by Zanox (I plan to also wrap every response inside a class that allows to get every value following the Ruby-way, btw).
 
+Note also that the pagination in Zanox APIs is 0-indexed. For example, if you want to get the second page of the requested products list you have to pass `page: 1` to the optional params, otherwise you'll get, of course, the first page that actually is referrable as `page: 0`.
+Consider using `Zanox::Response#next_page` and `Zanox::Response#previous_page` to navigate through the pages.
+
 For debugging purpose, consider also to enable info logs by executing `Zanox::API.debug!`.
