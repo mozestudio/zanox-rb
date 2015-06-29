@@ -5,7 +5,7 @@ Currently supporting only `GET` requests (aka, read-only). Documentation and Rub
 
 Setup
 =====
-To store the Zanox keys safely, consider to store the keys inside your environment variables:
+To store the Zanox keys safely, consider to store them inside your environment variables:
 ```
 $ export ZANOX_CONNECT_ID=''
 $ export ZANOX_SECRET_KEY=''
