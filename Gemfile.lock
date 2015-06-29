@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zanoxrb (0.2)
+    zanoxrb (0.3)
       httparty (~> 0.13)
 
 GEM
