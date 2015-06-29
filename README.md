@@ -1,6 +1,7 @@
 ZanoxRB [![Build Status](https://travis-ci.org/mozestudio/zanox-rb.svg)](https://travis-ci.org/mozestudio/zanox-rb)
 =======
 A Ruby wrapper for Zanox's RESTful APIs because all the current alternatives outta here are shit.
+Currently supporting only `GET` requests (aka, read-only). Documentation and RubyGems will come soon.
 
 Setup
 =====
