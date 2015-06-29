@@ -45,8 +45,7 @@ module Zanox
 
       def request(method, options = {}, headers = {})
         if Session.secret_key
-          method_path = method[0] == '/' ? method : "/#{method}"
-          timestamp, nonce, signature = fingerprint_of(method_path, options)
+          timestamp, nonce, signature = Session.fingerprint_of(method, options)
           headers.merge!({
             'Authorization' => "ZXWS #{Session.connect_id}:#{signature}",
             'Date'          => timestamp,
@@ -60,28 +59,6 @@ module Zanox
         logger.info "Headers: #{headers.inspect}"
         response = get("/json/2011-03-01/#{method}", query: options, headers: headers)
         Response.new(response)
-      end
-
-      private
-      def fingerprint_of(method, options, verb = 'GET')
-        timestamp = get_timestamp
-        nonce     = get_nonce
-        params    = ''#?' + URI.encode_www_form(options)
-        signature = create_signature(Session.secret_key, "#{verb}#{method.downcase}#{params}#{timestamp}#{nonce}")
-        [timestamp, nonce, signature]
-      end
-
-      def get_timestamp
-        Time.now.strftime('%a, %e %b %Y %T %Z')
-      end
-
-      def get_nonce
-        Digest::MD5.hexdigest((Time.new.usec + rand()).to_s)
-      end
-
-      def create_signature(secret_key, string_to_sign)
-        digest = OpenSSL::HMAC.digest('sha1', secret_key, string_to_sign)
-        Base64.encode64(digest)[0..-2]
       end
     end
   end

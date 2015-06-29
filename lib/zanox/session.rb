@@ -28,6 +28,29 @@ module Zanox
       class << self
         attr_accessor :connect_id
         attr_accessor :secret_key
+
+        def fingerprint_of(method, options, verb = 'GET')
+          method = method[0] == '/' ? method : "/#{method}"
+
+          timestamp = get_timestamp
+          nonce     = get_nonce
+          signature = create_signature(Session.secret_key, "#{verb}#{method.downcase}#{timestamp}#{nonce}")
+          [timestamp, nonce, signature]
+        end
+
+        private
+        def get_timestamp
+          Time.now.strftime('%a, %e %b %Y %T %Z')
+        end
+
+        def get_nonce
+          Digest::MD5.hexdigest((Time.new.usec + rand()).to_s)
+        end
+
+        def create_signature(secret_key, string_to_sign)
+          digest = OpenSSL::HMAC.digest('sha1', secret_key, string_to_sign)
+          Base64.encode64(digest)[0..-2]
+        end
       end
     end
   end
