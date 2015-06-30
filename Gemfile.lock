@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zanoxrb (0.4)
+    zanoxrb (0.5)
       httparty (~> 0.13)
       ruby-try (~> 1.1)
 
