@@ -1,3 +1,5 @@
+require_relative 'spec_helper'
+
 describe Zanox::API do
   describe '#request' do
     context 'programs' do

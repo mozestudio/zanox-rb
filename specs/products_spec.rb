@@ -1,3 +1,5 @@
+require_relative 'spec_helper'
+
 describe Zanox::API do
   describe '#request' do
     before :each do
@@ -36,6 +38,7 @@ describe Zanox::API do
       end
     end
 
+    # TODO: Implement this
     # context 'products#next_page!' do
     #   let(:products) { Zanox::API.request('products', q: 'iPod', items: 50) }
     #
