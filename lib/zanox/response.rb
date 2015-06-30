@@ -60,8 +60,15 @@ module Zanox
 
     def method_missing(m, *args, &block)
       key = m.to_s
+
       response = @response[key] || @response["@#{key}"] || @response[camelize(key)]
-      response.kind_of?(Hash) && response.length == 1 ? response.values.first : response
+      results  = if response.kind_of?(Hash) && response.length == 1
+        response.values.first # sugar to get items (i.e. programItems)
+      else
+        response
+      end
+
+      key.end_with?('_items') && !results ? [] : results
     end
 
     private
