@@ -78,7 +78,7 @@ module Zanox
       end
 
       def find_by_id(id, args = {})
-        response = ::Zanox::API.request("programs/program/#{id}", args)
+        response = API.request("programs/program/#{id}", args)
         response.program_item.map { |program| new(program) }
       end
 
