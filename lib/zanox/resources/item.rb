@@ -23,5 +23,17 @@
 #++
 
 module Zanox
-  VERSION = '0.5'
+  class Item
+    include Hashable
+
+    def initialize
+      raise NotImplementedError, '#initialize has not been implemented'
+    end
+
+    class << self
+      def find(*args)
+        raise NotImplementedError, '#find has not been implemented'
+      end
+    end
+  end
 end

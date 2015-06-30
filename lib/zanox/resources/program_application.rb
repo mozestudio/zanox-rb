@@ -23,5 +23,36 @@
 #++
 
 module Zanox
-  VERSION = '0.5'
+  class ProgramApplication < Item
+    attr_reader :pid, :program, :adspace, :status, :allow_tpv
+
+    ###################
+      # - pid            (Integer)  ProgramApplication ID
+      # - program        (Hash)     Infos about the program (activation status, id and name)
+      # - adspace        (Hash)     Infos about the adspace (id and name)
+      # - status         (String)   The status of the program (open, confirmed, rejected, deferred, waiting, blocked, terminated, canceled, called, declined, deleted)
+      # - allow_tpv      (Boolean)
+    ###################
+    def initialize(data)
+      @pid     = data['@id'].to_i
+      @program = {
+        active: data['program']['@active'] == 'true',
+        id:     data['program']['@id'].to_i,
+        name:   data['program']['$']
+      }
+      @adspace  = {
+        id:     data['adspace']['@id'],
+        name:   data['adspace']['$']
+      }
+      @status    = data['status']
+      @allow_tpv = data['allowTpv']
+    end
+
+    class << self
+      def find(args = {})
+        response = API.request(:programapplications, args)
+        response.program_application_items.map { |program_application| new(program_application) }
+      end
+    end
+  end
 end

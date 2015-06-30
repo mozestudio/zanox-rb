@@ -23,5 +23,21 @@
 #++
 
 module Zanox
-  VERSION = '0.5'
+  module Hashable
+    def to_hash
+      attributes.each_with_object({}) do |attr, hash|
+        key       = attr.to_s.delete('@')
+        hash[key] = attribute(attr)
+      end
+    end
+
+    protected
+    def attributes
+      instance_variables
+    end
+
+    def attribute(attr)
+      instance_variable_get(attr)
+    end
+  end
 end

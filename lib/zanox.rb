@@ -22,6 +22,7 @@
 # or implied, of Giovanni Capuano.
 #++
 require 'httparty'
+require 'ruby-try'
 require 'openssl'
 
 require 'zanox/logger'
@@ -30,4 +31,12 @@ require 'zanox/exceptions/access_denied'
 require 'zanox/exceptions/invalid_request'
 require 'zanox/response'
 require 'zanox/api'
+
+require 'zanox/hashable'
+require 'zanox/resources/item'
+require 'zanox/resources/adspace'
+require 'zanox/resources/product'
+require 'zanox/resources/program_application'
+require 'zanox/resources/shop'
+
 require 'zanox/version'

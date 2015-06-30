@@ -15,6 +15,7 @@ Gem::Specification.new { |s|
   s.require_paths = ['lib']
 
   s.add_dependency             'httparty',                  '~> 0.13'
+  s.add_dependency             'ruby-try',                  '~> 1.1'
   s.add_development_dependency 'rake',                      '~> 10.4'
   s.add_development_dependency 'rspec',                     '~> 3.3'
   s.add_development_dependency 'rspec-collection_matchers', '~> 1.1'

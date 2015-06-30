@@ -68,7 +68,7 @@ module Zanox
         response
       end
 
-      key.end_with?('_items') && !results ? [] : results
+      (key.end_with?('_item') || key.end_with?('_items')) && (!results || !results.kind_of?(Enumerable)) ? [] : results
     end
 
     private
