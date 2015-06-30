@@ -21,22 +21,23 @@
 # authors and should not be interpreted as representing official policies, either expressed
 # or implied, of Giovanni Capuano.
 #++
-require 'httparty'
-require 'ruby-try'
-require 'openssl'
 
-require 'zanox/logger'
-require 'zanox/session'
-require 'zanox/exceptions/access_denied'
-require 'zanox/exceptions/invalid_request'
-require 'zanox/response'
-require 'zanox/api'
+module Zanox
+  module Hashable
+    def to_hash
+      attributes.each_with_object({}) do |attr, hash|
+        key       = attr.to_s.delete('@')
+        hash[key] = attribute(attr)
+      end
+    end
 
-require 'zanox/hashable'
-require 'zanox/resources/item'
-require 'zanox/resources/adspace'
-require 'zanox/resources/product'
-require 'zanox/resources/program_application'
-require 'zanox/resources/shop'
+    protected
+    def attributes
+      instance_variables
+    end
 
-require 'zanox/version'
+    def attribute(attr)
+      instance_variable_get(attr)
+    end
+  end
+end

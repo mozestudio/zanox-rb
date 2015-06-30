@@ -21,22 +21,19 @@
 # authors and should not be interpreted as representing official policies, either expressed
 # or implied, of Giovanni Capuano.
 #++
-require 'httparty'
-require 'ruby-try'
-require 'openssl'
 
-require 'zanox/logger'
-require 'zanox/session'
-require 'zanox/exceptions/access_denied'
-require 'zanox/exceptions/invalid_request'
-require 'zanox/response'
-require 'zanox/api'
+module Zanox
+  class Item
+    include Hashable
 
-require 'zanox/hashable'
-require 'zanox/resources/item'
-require 'zanox/resources/adspace'
-require 'zanox/resources/product'
-require 'zanox/resources/program_application'
-require 'zanox/resources/shop'
+    def initialize
+      raise NotImplementedError, '#initialize has not been implemented'
+    end
 
-require 'zanox/version'
+    class << self
+      def find(*args)
+        raise NotImplementedError, '#find has not been implemented'
+      end
+    end
+  end
+end

@@ -21,22 +21,38 @@
 # authors and should not be interpreted as representing official policies, either expressed
 # or implied, of Giovanni Capuano.
 #++
-require 'httparty'
-require 'ruby-try'
-require 'openssl'
 
-require 'zanox/logger'
-require 'zanox/session'
-require 'zanox/exceptions/access_denied'
-require 'zanox/exceptions/invalid_request'
-require 'zanox/response'
-require 'zanox/api'
+module Zanox
+  class ProgramApplication < Item
+    attr_reader :pid, :program, :adspace, :status, :allow_tpv
 
-require 'zanox/hashable'
-require 'zanox/resources/item'
-require 'zanox/resources/adspace'
-require 'zanox/resources/product'
-require 'zanox/resources/program_application'
-require 'zanox/resources/shop'
+    ###################
+      # - pid            (Integer)  ProgramApplication ID
+      # - program        (Hash)     Infos about the program (activation status, id and name)
+      # - adspace        (Hash)     Infos about the adspace (id and name)
+      # - status         (String)   The status of the program (open, confirmed, rejected, deferred, waiting, blocked, terminated, canceled, called, declined, deleted)
+      # - allow_tpv      (Boolean)
+    ###################
+    def initialize(data)
+      @pid     = data['@id'].to_i
+      @program = {
+        active: data['program']['@active'] == 'true',
+        id:     data['program']['@id'].to_i,
+        name:   data['program']['$']
+      }
+      @adspace  = {
+        id:     data['adspace']['@id'],
+        name:   data['adspace']['$']
+      }
+      @status    = data['status']
+      @allow_tpv = data['allowTpv']
+    end
 
-require 'zanox/version'
+    class << self
+      def find(args = {})
+        response = API.request(:programapplications, args)
+        response.program_application_items.map { |program_application| new(program_application) }
+      end
+    end
+  end
+end

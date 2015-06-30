@@ -3,6 +3,7 @@ PATH
   specs:
     zanoxrb (0.4)
       httparty (~> 0.13)
+      ruby-try (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -29,6 +30,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    ruby-try (1.1.1)
 
 PLATFORMS
   ruby
@@ -38,3 +40,6 @@ DEPENDENCIES
   rspec (~> 3.3)
   rspec-collection_matchers (~> 1.1)
   zanoxrb!
+
+BUNDLED WITH
+   1.10.4
