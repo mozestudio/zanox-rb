@@ -55,8 +55,8 @@ module Zanox
         categories_ = data['categories'].try { |p| p[0]['category'] }
         data['categories'].try { |p| p[0]['category'] }.each do |category|
           categories << {
-            id:   category['@id'],
-            name: category['$'],
+            id:   category[0],
+            name: category[1],
           }
         end
       end
