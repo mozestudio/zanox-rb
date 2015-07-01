@@ -26,7 +26,7 @@ module Zanox
   module Hashable
     def to_hash
       attributes.each_with_object({}) do |attr, hash|
-        key       = attr.to_s.delete('@')
+        key       = attr.to_s.delete('@').to_sym
         hash[key] = attribute(attr)
       end
     end
