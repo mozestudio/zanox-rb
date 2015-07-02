@@ -71,8 +71,9 @@ module Zanox
         response.product_items.map { |product| new(product) }
       end
 
-      def from_shop(shop_id)
-        response = API.request(:products, programs: shop_id)
+      def from_shop(shop_id, args = {})
+        args.merge!({ programs: shop_id })
+        response = API.request(:products, args)
         response.product_items.map { |product| new(product) }
       end
     end
