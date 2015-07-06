@@ -45,8 +45,8 @@ module Zanox
         name: data['adspace']['$']
       }
       @transaction_type = data['transactionType']
-      @sale_fixed       = data['sale_fixed']
-      @sale_percent     = data['sale_percent']
+      @sale_fixed       = data['saleFixed']
+      @sale_percent     = data['salePercent']
     end
 
     class << self
