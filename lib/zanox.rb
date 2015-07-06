@@ -37,6 +37,7 @@ require 'zanox/resources/item'
 require 'zanox/resources/adspace'
 require 'zanox/resources/product'
 require 'zanox/resources/program_application'
+require 'zanox/resources/tracking_category'
 require 'zanox/resources/shop'
 
 require 'zanox/version'
