@@ -23,7 +23,7 @@
 #++
 
 module Zanox
-  class TrackingCategories < Item
+  class TrackingCategory < Item
     attr_reader :pid, :program, :adspace, :transaction_type, :sale_fixed, :sale_percent
 
     ###################
