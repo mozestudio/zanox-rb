@@ -23,5 +23,5 @@
 #++
 
 module Zanox
-  VERSION = '0.5.4.2'
+  VERSION = '0.5.4.3'
 end
