@@ -52,7 +52,7 @@ module Zanox
     class << self
       def find(program_id, adspace_id)
         response = API.request("programapplications/program/#{program_id}/adspace/#{adspace_id}/trackingcategories")
-        response.tracking_category_item.map { |tracking_category| new(tracking_category) }
+        [response.tracking_category_item].flatten.map { |tracking_category| new(tracking_category) }
       end
     end
   end
