@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zanoxrb (0.5.4.3)
+    zanoxrb (0.5.5)
       httparty (~> 0.13)
       ruby-try (~> 1.1)
 
@@ -36,10 +36,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.10, >= 1.10.5)
   rake (~> 10.4)
   rspec (~> 3.3)
   rspec-collection_matchers (~> 1.1)
   zanoxrb!
 
 BUNDLED WITH
-   1.10.4
+   1.10.5
