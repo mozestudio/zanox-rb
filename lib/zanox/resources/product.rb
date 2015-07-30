@@ -76,6 +76,11 @@ module Zanox
         response = API.request(:products, args)
         response.product_items.map { |product| new(product) }
       end
+
+      def from_id(product_id, args = {})
+        response = API.request("products/product/#{product_id}", args)
+        new(response.product_item.first)
+      end
     end
 
     private
