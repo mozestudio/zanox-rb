@@ -37,6 +37,18 @@ describe Zanox::Product do
     end
   end
 
+  describe '#from_id' do
+    let(:product) { Zanox::Product.from_id('0eca835e6c78e10c3b31a8146fc12324') }
+
+    it 'returns a Product' do
+      expect(product).to be_a(Zanox::Product)
+    end
+
+    it 'returns a Product matching given id' do
+      expect(product.pid).to eq('0eca835e6c78e10c3b31a8146fc12324')
+    end
+  end
+
   describe '#initialize' do
     let(:data) do
       {
