@@ -22,7 +22,7 @@ describe Zanox::Product do
   end
 
   describe '#from_shop' do
-    let(:products) { Zanox::Product.from_shop(7187) }
+    let(:products) { Zanox::Product.from_shop(5563) }
 
     it 'finds products by keyword' do
       expect(products.length).to be >= 8
@@ -33,7 +33,7 @@ describe Zanox::Product do
     end
 
     it 'returns only Products that belongs to given shop' do
-      expect(products.all? { |product| product.program[:id] == 7187 }).to be_truthy
+      expect(products.all? { |product| product.program[:id] == 5563 }).to be_truthy
     end
   end
 
