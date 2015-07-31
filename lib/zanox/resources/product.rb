@@ -26,6 +26,7 @@ module Zanox
   class Product < Item
     attr_reader :pid, :name, :program, :description, :excerpt, :manufacturer, :category,
       :images, :currency, :price, :shipping_costs, :delivery_time, :tracking_link
+    attr_accessor :pagination
 
     ###################
       # - pid            (String)   Product ID
@@ -68,18 +69,27 @@ module Zanox
       def find(keyword, args = {})
         args.merge!({ q: keyword })
         response = API.request(:products, args)
-        response.product_items.map { |product| new(product) }
+        from_product_items(response)
       end
 
       def from_shop(shop_id, args = {})
         args.merge!({ programs: shop_id })
         response = API.request(:products, args)
-        response.product_items.map { |product| new(product) }
+        from_product_items(response)
       end
 
       def from_id(product_id, args = {})
         response = API.request("products/product/#{product_id}", args)
         new(response.product_item.first)
+      end
+
+      private
+      def from_product_items(response)
+        response.product_items.map do |product|
+          item = new(product)
+          item.pagination = { page: response.page, items: response.items, total: response.total }
+          item
+        end
       end
     end
 
