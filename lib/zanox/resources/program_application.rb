@@ -40,7 +40,7 @@ module Zanox
         id:     data['program']['@id'].to_i,
         name:   data['program']['$']
       }
-      @adspace  = {
+      @adspace = {
         id:     data['adspace']['@id'],
         name:   data['adspace']['$']
       }
