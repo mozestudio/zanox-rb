@@ -68,8 +68,8 @@ module Zanox
     end
 
     class << self
-      def find_by_date(date)
-        response = API.request("reports/sales/date/#{date.to_s}")
+      def find_by_date(date, args = {})
+        response = API.request("reports/sales/date/#{date.to_s}", args)
         [response.sale_items].flatten.map { |sale_item| new(sale_item) }
       end
     end
