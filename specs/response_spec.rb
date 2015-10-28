@@ -9,7 +9,7 @@ describe Zanox::API do
         it 'returns one or more items' do
           items = response.program_items
           expect(items).to be_an(Array)
-          expect(items).to have_exactly(10).items
+          expect(items).to have_at_least(1).item
         end
       end
 
