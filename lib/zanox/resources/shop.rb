@@ -43,6 +43,8 @@ module Zanox
       # - policies       (String[]) A collection of the policies followed by the shop
     ###################
     def initialize(data)
+      super(data)
+
       @pid            = data['@id'].to_i
       @name           = data['name']
       @rank           = data['adrank'].to_f

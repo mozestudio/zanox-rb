@@ -34,6 +34,8 @@ module Zanox
       # - allow_tpv      (Boolean)
     ###################
     def initialize(data)
+      super(data)
+
       @pid     = data['@id'].to_i
       @program = {
         active: data['program']['@active'] == 'true',

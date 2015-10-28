@@ -42,6 +42,8 @@ module Zanox
       # - check_number   (Integer)
     ###################
     def initialize(data)
+      super(data)
+
       @pid           = data['@id'].to_i
       @name          = data['name']
       @url           = data['url']

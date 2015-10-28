@@ -42,6 +42,8 @@ module Zanox
       # - review_note    (String)   Note leaved by the advertiser who reviewed the purchase
     ###################
     def initialize(data)
+      super(data)
+
       @pid            = data['@id'].to_i
       @review_state   = data['review_state']
       @tracking_date  = Date.parse(data['tracking_date'])

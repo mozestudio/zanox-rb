@@ -25,9 +25,14 @@
 module Zanox
   class Item
     include Hashable
+    attr_reader :gpps
 
-    def initialize
-      raise NotImplementedError, '#initialize has not been implemented'
+    def initialize(data)
+      @gpps = {}
+      data.fetch('gpps') { [] }.each do |gpp|
+        zpar = gpp['@id']
+        @gpps[zpar] = gpp['$']
+      end
     end
 
     class << self

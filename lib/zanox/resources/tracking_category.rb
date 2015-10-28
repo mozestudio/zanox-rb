@@ -36,6 +36,8 @@ module Zanox
       # - sale_percent     (Float)    The percent value of the sale
     ###################
     def initialize(data)
+      super(data)
+
       @pid           = data['@id'].to_i
       @name          = data['name']
       @program       = {
