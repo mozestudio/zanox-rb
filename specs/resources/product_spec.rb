@@ -38,14 +38,15 @@ describe Zanox::Product do
   end
 
   describe '#from_id' do
-    let(:product) { Zanox::Product.from_id('0eca835e6c78e10c3b31a8146fc12324') }
+    let(:iphone) { Zanox::Product.find('iphone').first }
+    let(:product) { Zanox::Product.from_id(iphone.pid) }
 
     it 'returns a Product' do
       expect(product).to be_a(Zanox::Product)
     end
 
     it 'returns a Product matching given id' do
-      expect(product.pid).to eq('0eca835e6c78e10c3b31a8146fc12324')
+      expect(product.pid).to eq(iphone.pid)
     end
   end
 
