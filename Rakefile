@@ -4,6 +4,7 @@ require 'rake'
 task default: [ :build, :install, :test ]
 
 task :build do
+  sh 'bundle install'
   sh 'gem build zanoxrb.gemspec'
 end
 
