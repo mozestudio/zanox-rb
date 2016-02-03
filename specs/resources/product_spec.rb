@@ -22,7 +22,7 @@ describe Zanox::Product do
   end
 
   describe '#from_shop' do
-    let(:products) { Zanox::Product.from_shop(7187) }
+    let(:products) { Zanox::Product.from_shop(5563) }
 
     it 'finds products by keyword' do
       expect(products.length).to be >= 8
@@ -33,19 +33,20 @@ describe Zanox::Product do
     end
 
     it 'returns only Products that belongs to given shop' do
-      expect(products.all? { |product| product.program[:id] == 7187 }).to be_truthy
+      expect(products.all? { |product| product.program[:id] == 5563 }).to be_truthy
     end
   end
 
   describe '#from_id' do
-    let(:product) { Zanox::Product.from_id('0eca835e6c78e10c3b31a8146fc12324') }
+    let(:iphone) { Zanox::Product.find('iphone').first }
+    let(:product) { Zanox::Product.from_id(iphone.pid) }
 
     it 'returns a Product' do
       expect(product).to be_a(Zanox::Product)
     end
 
     it 'returns a Product matching given id' do
-      expect(product.pid).to eq('0eca835e6c78e10c3b31a8146fc12324')
+      expect(product.pid).to eq(iphone.pid)
     end
   end
 
