@@ -9,7 +9,7 @@ Gem::Specification.new { |s|
   s.platform    = Gem::Platform::RUBY
   s.summary     = "A Ruby wrapper for Zanox's RESTful APIs."
   s.description = "A Ruby wrapper for Zanox's RESTful APIs because all the current alternatives outta here are shit."
-  s.license     = 'BSD'
+  s.license     = 'BSD-2-Clause'
 
   s.files         = `git ls-files`.split("\n")
   s.require_paths = ['lib']
