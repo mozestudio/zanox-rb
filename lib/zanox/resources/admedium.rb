@@ -38,29 +38,24 @@ module Zanox
       # - tracking_links (Hash[])   The list of the tracking links for the admedium
     ###################
     def initialize(data)
-      @pid           = data['@id'].to_i
-      @name          = data['name']
-      @adrank        = data['adrank']
-      @type          = data['admediumType']
-      @program       = {
+      @pid            = data['@id'].to_i
+      @name           = data['name']
+      @adrank         = data['adrank']
+      @type           = data['admediumType']
+      @program        = {
         id:   data['program']['@id'].to_i,
         name: data['program']['$']
       }
-      @title         = data['title']
-      @description   = data['description']
-      @title         = data['title']
-      @category      = parse_category(data)
-      @trackingLinks = parse_tracking_links(data)
+      @title          = data['title']
+      @description    = data['description']
+      @category       = parse_category(data)
+      @tracking_links = parse_tracking_links(data)
     end
 
     class << self
       def find(args = {})
         response = API.request(:admedia, args)
-        if response.admedium_items.is_a?(Array)
-          response.admedium_items.map { |admedium| new(admedium) }
-        else
-          new(response.admedium_items)
-        end
+        [response.admedium_items].flatten.map { |admedium| new(admedium) }
       end
     end
 
