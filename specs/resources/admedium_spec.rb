@@ -8,6 +8,7 @@ describe Zanox::AdMedium do
   describe '#find' do
     let(:admedia) { Zanox::AdMedium.find }
 
+    it { expect(admedia).to be_a(Array) }
     it { expect(admedia).to_not be_empty }
     it { expect(admedia.last).to be_a(Zanox::AdMedium) }
   end

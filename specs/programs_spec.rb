@@ -8,7 +8,7 @@ describe Zanox::API do
       it 'returns pagination infos' do
         expect(programs.page).to  be   0
         expect(programs.items).to be   10
-        expect(programs.total).to be > 1000
+        expect(programs.total).to be > 500
       end
 
       it 'returns a list of programs' do
