@@ -25,7 +25,7 @@
 module Zanox
   class Product < Item
     attr_reader :pid, :name, :program, :description, :excerpt, :manufacturer, :category,
-      :images, :currency, :price, :shipping_costs, :delivery_time, :tracking_link
+      :images, :currency, :price, :price_old, :shipping_costs, :delivery_time, :tracking_link
     attr_accessor :pagination
 
     ###################
@@ -60,6 +60,7 @@ module Zanox
       }
       @currency       = data['currency']
       @price          = data['price'].to_f
+      @price_old      = data['priceOld'].to_f
       @shipping_costs = data['shippingCosts'].try(:to_f)
       @delivery_time  = only_numbers(data['deliveryTime'])
       @tracking_link  = data['trackingLinks'].try { |d| d['trackingLink'] }.try { |d| d[0] }.try { |d| d['ppc'] }
