@@ -58,6 +58,7 @@ describe Zanox::Product do
         "modified" => "2015-04-28T03:06:58+02:00",
         "program"  => {"@id" => "7408", "$" => "Asos.com DE"},
         "price"    => 17.99,
+        "priceOld" => 25.99,
         "currency" => "EUR",
         "trackingLinks" => { "trackingLink" =>
           [
@@ -92,6 +93,7 @@ describe Zanox::Product do
       it 'creates a new instance of Product' do
         product = Zanox::Product.new(data)
         expect(product.price).to          be_a(Float)
+        expect(product.price_old).to      be_a(Float)
         expect(product.shipping_costs).to be_a(Float)
         expect(product.delivery_time).to  eq 4
         expect(product.description).to    eq 'ÜBER MICH Hauptmaterial: 58% Baumwolle, 39% Nylon, 3% Elastan        SO PFLEGEN SIE MICH Wie auf dem Pflegeetikett angegeben in der Maschine waschen'
