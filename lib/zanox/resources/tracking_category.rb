@@ -24,10 +24,11 @@
 
 module Zanox
   class TrackingCategory < Item
-    attr_reader :pid, :program, :adspace, :transaction_type, :sale_fixed, :sale_percent
+    attr_reader :pid, :program, :adspace, :transaction_type, :sale_fixed, :sale_percent, :name
 
     ###################
       # - pid              (Integer)  AdSpace ID
+      # - name             (String)   The name of the tracking category
       # - program          (Hash)     The program in input
       # - adspace          (Hash)     The adspace in input
       # - transaction_type (String)   The type of the transaction (leads, sales)
@@ -36,6 +37,7 @@ module Zanox
     ###################
     def initialize(data)
       @pid           = data['@id'].to_i
+      @name          = data['name']
       @program       = {
         id:   data['program']['@id'].to_i,
         name: data['program']['$']
