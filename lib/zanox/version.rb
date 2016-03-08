@@ -1,5 +1,5 @@
 #--
-# Copyright(C) 2015 Giovanni Capuano <webmaster@giovannicapuano.net>
+# Copyright(C) 2016 Giovanni Capuano <webmaster@giovannicapuano.net>
 #
 # Redistribution and use in source and binary forms, with or without modification, are
 # permitted provided that the following conditions are met:
@@ -23,5 +23,5 @@
 #++
 
 module Zanox
-  VERSION = '0.5.9'
+  VERSION = '0.5.10'
 end
