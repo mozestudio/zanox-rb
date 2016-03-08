@@ -100,6 +100,7 @@ module Zanox
     end
 
     def only_numbers(s)
+      return s if s.is_a?(Numeric)
       s ? s.scan(/\d+/).last.to_i : s
     end
   end
