@@ -29,7 +29,7 @@ module Zanox
 
     def initialize(data)
       @gpps = {}
-      data.fetch('gpps') { [] }.each do |gpp|
+      data.fetch('gpps') {{}}.fetch('gpp') { [] }.each do |gpp|
         zpar = gpp['@id']
         @gpps[zpar] = gpp['$']
       end

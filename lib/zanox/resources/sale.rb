@@ -44,10 +44,10 @@ module Zanox
     def initialize(data)
       super(data)
 
-      @pid            = data['@id'].to_i
-      @review_state   = data['review_state']
-      @tracking_date  = Date.parse(data['tracking_date'])
-      @click_date     = Date.parse(data['click_date'])
+      @pid            = data['@id']
+      @review_state   = data['reviewState']
+      @tracking_date  = Date.parse(data['trackingDate'])
+      @click_date     = Date.parse(data['clickDate'])
       @adspace        = {
         id:     data['adspace']['@id'],
         name:   data['adspace']['$']
@@ -60,16 +60,19 @@ module Zanox
         id:     data['program']['@id'],
         name:   data['program']['$']
       }
-      @click_id    = data['click_id'].to_i
+      @click_id    = data['clickId'].to_i
       @amount      = data['amount'].to_f
       @commission  = data['commission'].to_f
       @currency    = data['currency']
-      @review_note = data['review_note']
+      @review_note = data['reviewNote']
+      @gpps        = {}
+      data['gpps']['gpp'].each {|gpp| @gpps[gpp['@id']] = gpp["$"] }
     end
 
     class << self
       def find_by_date(date, args = {})
         response = API.request("reports/sales/date/#{date.to_s}", args)
+
         [response.sale_items].flatten.map { |sale_item| new(sale_item) }
       end
     end
