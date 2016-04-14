@@ -66,7 +66,14 @@ module Zanox
       @currency    = data['currency']
       @review_note = data['reviewNote']
       @gpps        = {}
-      data['gpps']['gpp'].each {|gpp| @gpps[gpp['@id']] = gpp["$"] }
+      gpp_list     = data['gpps']['gpp']
+
+      if gpp_list.is_a?(Array)
+        gpp_list.each {|gpp| @gpps[gpp['@id']] = gpp["$"] }
+      else
+        @gpps[gpp_list["@id"]] = gpp_list["$"]
+      end
+
     end
 
     class << self
