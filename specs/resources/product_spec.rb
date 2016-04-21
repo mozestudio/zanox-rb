@@ -5,7 +5,7 @@ describe Zanox::Product do
     Zanox::API::Session.connect_id = '43EEF0445509C7205827'
   end
 
-  describe '#find' do
+  describe '#find', :vcr do
     let(:iphone) { Zanox::Product.find('iphone') }
     let(:book)   { Zanox::Product.find('book')   }
     let(:nike)   { Zanox::Product.find('nike')   }
@@ -21,7 +21,7 @@ describe Zanox::Product do
     end
   end
 
-  describe '#from_shop' do
+  describe '#from_shop', :vcr do
     let(:products) { Zanox::Product.from_shop(5563) }
 
     it 'finds products by keyword' do
@@ -37,7 +37,7 @@ describe Zanox::Product do
     end
   end
 
-  describe '#from_id' do
+  describe '#from_id', :vcr do
     let(:iphone) { Zanox::Product.find('iphone').first }
     let(:product) { Zanox::Product.from_id(iphone.pid) }
 
@@ -50,7 +50,7 @@ describe Zanox::Product do
     end
   end
 
-  describe '#initialize' do
+  describe '#initialize', :vcr do
     let(:data) do
       {
         "@id"      => "7f3b1f59484c49b8cbf6b70356b20d6f",

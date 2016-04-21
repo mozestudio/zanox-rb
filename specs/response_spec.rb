@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe Zanox::API do
-  describe '#method_missing' do
+  describe '#method_missing', :vcr do
     context '*_items always returns an array' do
       let(:response) { Zanox::API.request('programs') }
 
@@ -9,7 +9,7 @@ describe Zanox::API do
         it 'returns one or more items' do
           items = response.program_items
           expect(items).to be_an(Array)
-          expect(items).to have_exactly(10).items
+          expect(items).to have_exactly(9).items
         end
       end
 
