@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
 describe Zanox::Shop do
-  describe '#find' do
+  describe '#find', :vcr do
     let(:shops) { Zanox::Shop.find('zalando') }
 
     it 'finds shops by keyword' do
@@ -13,7 +13,7 @@ describe Zanox::Shop do
     end
   end
 
-  describe '#confirmed' do
+  describe '#confirmed', :vcr do
     let(:programs) { Zanox::Shop.instance_eval { confirmed } }
 
     it 'contains at least one program' do
@@ -42,7 +42,7 @@ describe Zanox::Shop do
   #   end
   # end
 
-  describe '#initialize' do
+  describe '#initialize', :vcr do
     let(:data) do
       {
         "@id"    => "2283",

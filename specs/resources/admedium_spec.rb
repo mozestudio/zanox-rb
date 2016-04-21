@@ -5,7 +5,7 @@ describe Zanox::AdMedium do
     Zanox::API::Session.connect_id = '43EEF0445509C7205827'
   end
 
-  describe '#find' do
+  describe '#find', :vcr do
     let(:admedia) { Zanox::AdMedium.find }
 
     it { expect(admedia).to be_a(Array) }
