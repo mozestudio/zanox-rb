@@ -20,4 +20,6 @@ Gem::Specification.new { |s|
   s.add_development_dependency 'rspec',                     '~> 3.3'
   s.add_development_dependency 'rspec-collection_matchers', '~> 1.1'
   s.add_development_dependency 'bundler',                   '~> 1.10'
+  s.add_development_dependency 'vcr',                       '~> 3.0'
+  s.add_development_dependency 'webmock',                   '~> 1.24'
 }
