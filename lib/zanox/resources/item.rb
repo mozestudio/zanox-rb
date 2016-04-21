@@ -25,9 +25,10 @@
 module Zanox
   class Item
     include Hashable
+    attr_reader :gpps
 
-    def initialize
-      raise NotImplementedError, '#initialize has not been implemented'
+    def initialize(data)
+
     end
 
     class << self

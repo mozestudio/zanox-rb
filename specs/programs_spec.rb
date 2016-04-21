@@ -14,7 +14,7 @@ describe Zanox::API do
       it 'returns a list of programs' do
         items = programs.program_items
         expect(items).to be_an(Array)
-        expect(items).to have_exactly(10).programs
+        expect(items).to have_at_least(1).program
       end
     end
   end

@@ -42,6 +42,8 @@ module Zanox
       # - check_number   (Integer)
     ###################
     def initialize(data)
+      super(data)
+
       @pid           = data['@id'].to_i
       @name          = data['name']
       @url           = data['url']
@@ -51,7 +53,7 @@ module Zanox
       @impressions   = data['impressions'].to_i
       @scope         = data['scope']
       @regions       = [data['regions'].try { |r| r.map(&:values) }].flatten.compact
-      @categories     = [].tap do |categories|
+      @categories    = [].tap do |categories|
         categories_ = data['categories'].try { |p| p[0]['category'] }
         data['categories'].try { |p| p[0]['category'] }.each do |category|
           categories << {

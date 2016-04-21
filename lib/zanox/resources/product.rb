@@ -43,6 +43,8 @@ module Zanox
       # - tracking_link  (String )  The link that redirects to the advertiser's shop
     ###################
     def initialize(data)
+      super(data)
+
       @pid            = data['@id']
       @name           = data['name']
       @program        = {

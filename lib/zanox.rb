@@ -40,5 +40,6 @@ require 'zanox/resources/program_application'
 require 'zanox/resources/tracking_category'
 require 'zanox/resources/shop'
 require 'zanox/resources/admedium'
+require 'zanox/resources/sale'
 
 require 'zanox/version'
