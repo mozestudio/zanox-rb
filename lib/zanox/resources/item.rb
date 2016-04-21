@@ -28,11 +28,7 @@ module Zanox
     attr_reader :gpps
 
     def initialize(data)
-      @gpps = {}
-      data.fetch('gpps') {{}}.fetch('gpp') { [] }.each do |gpp|
-        zpar = gpp['@id']
-        @gpps[zpar] = gpp['$']
-      end
+
     end
 
     class << self

@@ -77,6 +77,12 @@ module Zanox
     end
 
     class << self
+      def find(id)
+        response = API.request("reports/sales/sale/#{id}")
+
+        new(response.sale_item.first)
+      end
+
       def find_by_date(date, args = {})
         response = API.request("reports/sales/date/#{date.to_s}", args)
 
