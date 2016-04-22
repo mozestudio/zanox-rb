@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.zanox.com/json/2011-03-01/adspaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - ZXWS 802B8BF4AE99EBE00F41:Nq6phdU0mN7pPtP3CQB8fjuCaL0=
+      Date:
+      - Fri, 22 Apr 2016 00:29:53 CEST
+      Nonce:
+      - f4f385799a667e333df293b76716c21e
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Apr 2016 22:29:53 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 api.zanox.com
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJwYWdlIjowLCJpdGVtcyI6MiwidG90YWwiOjIsImFkc3BhY2VJdGVtcyI6
+        eyJhZHNwYWNlSXRlbSI6W3siQGlkIjoiMTQ1NTQwMyIsIm5hbWUiOiJaQW5v
+        eCIsInVybCI6Imh0dHA6XC9cL3d3dy56YW5veC5jb20iLCJkZXNjcmlwdGlv
+        biI6InNkZmRzZiIsImFkc3BhY2VUeXBlIjoid2Vic2l0ZSIsInZpc2l0b3Jz
+        IjoxLCJpbXByZXNzaW9ucyI6MSwic2NvcGUiOiJwcml2YXRlIiwicmVnaW9u
+        cyI6W3sicmVnaW9uIjpbIkhLIiwiREUiXX1dLCJjYXRlZ29yaWVzIjpbeyJj
+        YXRlZ29yeSI6W3siQGlkIjoiNjQiLCIkIjoiQS1LdW5kZSJ9LHsiQGlkIjoi
+        NDMiLCIkIjoiT3RoZXIifSx7IkBpZCI6IjUzIiwiJCI6Im50ZXJuYXRpb25h
+        bGUgQWt0aXZpdMO1dGVuIn0seyJAaWQiOiI2NyIsIiQiOiJDUE0gXC8gTWVk
+        aWEgQ2FtcGFpZ25zIn1dfV0sImxhbmd1YWdlIjoiZGUiLCJjaGVja051bWJl
+        ciI6NjA2NTg5NTF9LHsiQGlkIjoiMTY1NDc3NCIsIm5hbWUiOiJuYW1yZSIs
+        InVybCI6Imh0dHA6XC9cL3d3dy50ZXN0LmNvbSIsImRlc2NyaXB0aW9uIjoi
+        dGVzdCIsImFkc3BhY2VUeXBlIjoid2Vic2l0ZSIsInZpc2l0b3JzIjoxLCJp
+        bXByZXNzaW9ucyI6MSwic2NvcGUiOiJwcml2YXRlIiwicmVnaW9ucyI6W3si
+        cmVnaW9uIjoiREUifV0sImNhdGVnb3JpZXMiOlt7ImNhdGVnb3J5IjpbeyJA
+        aWQiOiIzNyIsIiQiOiJIaUZpLCBUViAmIFZpZGVvIn0seyJAaWQiOiI0OSIs
+        IiQiOiJUcmFmZmljIEJyb2tlciBcLyBBcmJpdHJhZ2UifV19XSwibGFuZ3Vh
+        Z2UiOiJkZSIsImNoZWNrTnVtYmVyIjoxNTc1ODc2MDd9XX19
+    http_version: 
+  recorded_at: Thu, 21 Apr 2016 22:29:53 GMT
+- request:
+    method: get
+    uri: http://api.zanox.com/json/2011-03-01/programapplications?adspace=1455403
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - ZXWS 802B8BF4AE99EBE00F41:EEES9XLmD9ME6hjV305lShmSbSU=
+      Date:
+      - Fri, 22 Apr 2016 00:29:53 CEST
+      Nonce:
+      - 5dd5b75ede8bcf0cb78136d0c6aca7f6
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Apr 2016 22:29:53 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 api.zanox.com
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"page":0,"items":2,"total":2,"programApplicationItems":{"programApplicationItem":[{"@id":"8203734","program":{"@active":"false","@id":"2243","$":"zanox
+        Professional Publisher"},"adspace":{"@id":"1455403","$":"ZAnox"},"status":"confirmed","createDate":"2010-07-07T15:26:19.883+02:00","allowTpv":false},{"@id":"10799395","program":{"@active":"true","@id":"10919","$":"TEST
+        RND Program 4"},"adspace":{"@id":"1455403","$":"ZAnox"},"status":"confirmed","createDate":"2012-03-12T13:11:23.527+01:00","allowTpv":false,"approvedDate":"2012-03-12T13:17:06.010+01:00"}]}}'
+    http_version: 
+  recorded_at: Thu, 21 Apr 2016 22:29:53 GMT
+recorded_with: VCR 3.0.1

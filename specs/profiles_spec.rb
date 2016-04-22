@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe Zanox::API do
-  describe '#request' do
+  describe '#request', :vcr do
     context 'profiles' do
       let(:profiles) { Zanox::API.request('profiles').profile_item }
 

@@ -8,7 +8,11 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.4.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
+    hashdiff (0.3.0)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -31,6 +35,12 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     ruby-try (1.1.1)
+    safe_yaml (1.0.4)
+    vcr (3.0.1)
+    webmock (1.24.5)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -40,6 +50,8 @@ DEPENDENCIES
   rake (~> 10.4)
   rspec (~> 3.3)
   rspec-collection_matchers (~> 1.1)
+  vcr (~> 3.0)
+  webmock (~> 1.24)
   zanoxrb!
 
 BUNDLED WITH

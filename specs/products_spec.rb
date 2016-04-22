@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe Zanox::API do
-  describe '#request' do
+  describe '#request', :vcr do
     before :each do
       Zanox::API::Session.connect_id = '43EEF0445509C7205827'
     end
