@@ -98,7 +98,7 @@ module Zanox
 
     private
     def strip_cdata(s)
-      s ? s.gsub(/<!\[CDATA\[(.*)\]\]>/, '\1') : s
+      s ? s.to_s.gsub(/<!\[CDATA\[(.*)\]\]>/, '\1') : s
     end
 
     def only_numbers(s)
